@@ -1,23 +1,33 @@
 class Solution {
-  Map<String, int> map = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000};
-
-  int value = 0;
   int romanToInt(String s) {
-    for (var i = 0; i < s.length; i++) {
-      int currentValue = map[s[i]]!;
-      int nextValue = i + 1 < s.length ? map[s[i + 1]]! : 0;
-
-      if (currentValue < nextValue) {
-        value -= currentValue;
-      } else {
-        value += currentValue;
+    int ans = 0, num = 0;
+    for (int i = s.length - 1; i >= 0; i--) {
+      switch (s[i]) {
+        case 'I':
+          num = 1;
+        case 'V':
+          num = 5;
+        case 'X':
+          num = 10;
+        case 'L':
+          num = 50;
+        case 'C':
+          num = 100;
+        case 'D':
+          num = 500;
+        case 'M':
+          num = 1000;
       }
+      if (4 * num < ans)
+        ans -= num;
+      else
+        ans += num;
     }
-    return value;
+    return ans;
   }
 }
 
 void main() {
   Solution s = Solution();
-  print(s.romanToInt("III"));
+  print(s.romanToInt("MCMXCIV"));
 }
