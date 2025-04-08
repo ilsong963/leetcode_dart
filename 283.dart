@@ -10,7 +10,6 @@ class Solution {
       }
     }
     nums.addAll(List.filled(count, 0));
-    print(nums);
   }
 }
 
