@@ -9,10 +9,6 @@ class Solution {
 
     for (int i = 0; i < nums.length; i++) {
       total -= nums[i];
-      print(nums[i]);
-
-      print("$sum == $total");
-      print('---------');
 
       if (sum == total) {
         return i;
