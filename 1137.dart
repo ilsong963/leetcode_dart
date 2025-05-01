@@ -3,6 +3,10 @@ class Solution {
     int answer = 0;
     List triboList = [0, 1, 1];
 
+    if (n < 3) {
+      return triboList[n];
+    }
+
     for (int i = 0; i < n - 2; i++) {
       answer = sum(triboList);
       triboList.add(answer);
